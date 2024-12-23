@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Traditional vs AI-Powered Operations</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .chart-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="chart-container">
+        <h2>Traditional vs AI-Powered Operations</h2>
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Month 1', 'Month 3', 'Month 6', 'Month 12'],
+                datasets: [
+                    {
+                        label: 'Traditional Operations',
+                        data: [100, 110, 120, 130],
+                        borderColor: '#98B4D4',
+                        backgroundColor: '#98B4D450',
+                        fill: true
+                    },
+                    {
+                        label: 'AI-Powered Operations',
+                        data: [100, 80, 70, 60],
+                        borderColor: '#0066CC',
+                        backgroundColor: '#0066CC50',
+                        fill: true
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        title: {
+                            display: true,
+                            text: 'Operational Costs %'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
