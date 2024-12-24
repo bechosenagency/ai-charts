@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Industry Adoption and Value Generation</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .chart-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        .chart-wrapper {
+            position: relative;
+            height: 400px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .sources {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="chart-container">
+        <h2>AI Industry Adoption and Value Generation (2024)</h2>
+        <div class="chart-wrapper">
+            <canvas id="myChart"></canvas>
+        </div>
+        <div class="sources">
+            <p><strong>Sources:</strong></p>
+            <ul>
+                <li>Bipartisan Policy Center - "AI Adoption Across U.S. Economy 2024"</li>
+                <li>BCG - "AI Adoption Report 2024"</li>
+                <li>IBM - "Global AI Adoption Index 2024"</li>
+                <li>McKinsey - "State of AI in 2024"</li>
+            </ul>
+            <p><em>Note: Value Generation represents the percentage of total potential value currently being realized through AI implementations. Adoption Rate shows the percentage of companies actively using AI in core business functions.</em></p>
+        </div>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Information Technology', 'Healthcare', 'Financial Services', 'Manufacturing', 'Telecommunications', 'Retail'],
+                datasets: [
+                    {
+                        label: 'Current Adoption Rate (%)',
+                        data: [18.1, 12.0, 11.5, 12.0, 10.5, 4.0],
+                        backgroundColor: '#0066CC',
+                        borderColor: '#0066CC',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Value Generation (%)',
+                        data: [31, 28, 24, 22, 25, 15],
+                        backgroundColor: '#00CC66',
+                        borderColor: '#00CC66',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.dataset.label}: ${context.raw}%`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Percentage (%)'
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            maxRotation: 45,
+                            minRotation: 45
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

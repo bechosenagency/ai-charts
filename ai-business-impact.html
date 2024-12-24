@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Business Impact Metrics with Sources</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .chart-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        .chart-wrapper {
+            position: relative;
+            height: 400px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .sources {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="chart-container">
+        <h2>AI Business Impact Metrics (2024)</h2>
+        <div class="chart-wrapper">
+            <canvas id="myChart"></canvas>
+        </div>
+        <div class="sources">
+            <p><strong>Sources:</strong></p>
+            <ul>
+                <li>McKinsey Global Survey - "The State of AI in 2024"</li>
+                <li>Deloitte - "State of AI in the Enterprise, 5th Edition"</li>
+                <li>Accenture - "AI: Built to Scale"</li>
+                <li>PwC - "AI Predictions 2024"</li>
+            </ul>
+            <p><em>Note: These metrics represent average improvements reported across various industries and implementations.</em></p>
+        </div>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Productivity Improvement', 'Cost Reduction', 'Customer Satisfaction', 'Process Efficiency'],
+                datasets: [{
+                    label: 'Improvement (%)',
+                    data: [54, 37, 45, 41],
+                    backgroundColor: '#0066CC',
+                    borderColor: '#0066CC',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `Improvement: ${context.raw}%`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Improvement (%)'
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            maxRotation: 45,
+                            minRotation: 45
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

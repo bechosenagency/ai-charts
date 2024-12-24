@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI in Customer Service: Impact & Growth</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .chart-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        .chart-wrapper {
+            position: relative;
+            height: 400px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .sources {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .highlight-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #0066CC;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 0 4px 4px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="chart-container">
+        <h2>Contact Center AI Market Growth & Cost Savings</h2>
+        <div class="chart-wrapper">
+            <canvas id="myChart"></canvas>
+        </div>
+        <div class="sources">
+            <p><strong>Source:</strong></p>
+            <p>Gartner Press Release - "Gartner Predicts Conversational AI Will Reduce Contact Center Agent Labor Costs by $80 Billion in 2026"</p>
+            <p>Gartner Press Release - "Conversational AI Capabilities Drive Contact Center Market Growth"</p>
+            
+            <div class="highlight-box">
+                <p><strong>Key Predictions:</strong></p>
+                <ul>
+                    <li>Contact center and conversational AI spending to reach $18.6B in 2023 (16.2% growth)</li>
+                    <li>Expected to reduce agent labor costs by $80B by 2026</li>
+                    <li>20% of total revenue could come from "machine customers" by 2030</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['2023', '2024', '2025', '2026'],
+                datasets: [
+                    {
+                        label: 'Market Size (Billion USD)',
+                        data: [18.6, 21.6, 25.1, 29.2],
+                        backgroundColor: '#0066CC',
+                        yAxisID: 'y',
+                    },
+                    {
+                        label: 'Labor Cost Savings (Billion USD)',
+                        data: [20, 40, 60, 80],
+                        backgroundColor: '#00CC66',
+                        yAxisID: 'y1',
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.dataset.label}: $${context.raw}B`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        title: {
+                            display: true,
+                            text: 'Market Size (Billion USD)'
+                        }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        title: {
+                            display: true,
+                            text: 'Cost Savings (Billion USD)'
+                        },
+                        grid: {
+                            drawOnChartArea: false,
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
